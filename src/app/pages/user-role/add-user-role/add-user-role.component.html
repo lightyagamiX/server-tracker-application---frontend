@@ -1,0 +1,170 @@
+<app-preloader></app-preloader>
+
+<div id="pcoded" class="pcoded">
+    <div class="pcoded-overlay-box"></div>
+    <div class="pcoded-container navbar-wrapper">
+        <app-header></app-header>
+        <div class="pcoded-main-container">
+            <div class="pcoded-wrapper">
+                
+                <app-sidebar></app-sidebar>
+                <div class="pcoded-content">
+                    <div class="pcoded-inner-content">
+                        <div class="main-body">
+                            <div class="page-wrapper">
+                                <!-- Page-header start -->
+                                <div class="page-header card">
+                                    <div class="card-block">
+                                        <h5 class="m-b-10">User - Role Mapping</h5>
+                                        
+                                        <ul class="breadcrumb-title b-t-default p-t-10">
+                                            <li class="breadcrumb-item">
+                                                <a href="index.html"> <i class="fa fa-home"></i> </a>
+                                            </li>
+                                           <li class="breadcrumb-item"><a href="#!">User - Role Mapping</a></li>
+                                                    <!-- <li class="breadcrumb-item"><a href="#!">Add Training Details</a> </li> -->
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Page-header end -->
+                                
+                                <!-- Page body start -->
+                                <div class="page-body">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <!-- Basic Form Inputs card start -->
+                                            <div class="card">
+                                                
+                                                    <div class="card-block">
+                                                        <h4 class="sub-title">Basic Inputs</h4>
+                                                        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">Organisation Name</label>
+                                                                <div class="col-sm-10">
+                                                                    <select name="select" class="form-control" id="sec_dept_id" formControlName="sec_dept_id">
+                                                                        <option hidden>Choose</option>
+                                                                        <option *ngFor="let item of dep" value={{item.id}} >{{item.Dept_name}}</option>  
+                                                                    </select>
+                                                                    <div *ngIf="myForm.get('sec_dept_id')?.invalid && (myForm.get('sec_dept_id')?.dirty || myForm.get('sec_dept_id')?.touched)">
+                                                                        <div *ngIf="myForm.get('sec_dept_id')?.errors?.['required']"><p style=color:red;>required.</p> </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">Role</label>
+                                                                <div class="col-sm-10">
+                                                                    <select name="select" class="form-control" id="role_id" formControlName="role_id">
+                                                                        <option hidden>Choose</option>
+                                                                        <option *ngFor="let item of role" value={{item.id}} >{{item.RoleName}}</option>
+                                                                    </select>
+                                                                    <div *ngIf="myForm.get('role_id')?.invalid && (myForm.get('role_id')?.dirty || myForm.get('role_id')?.touched)">
+                                                                        <div *ngIf="myForm.get('role_id')?.errors?.['required']"><p style=color:red;>required.</p> </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">User</label>
+                                                                <div class="col-sm-10">
+                                                                    <select name="select" class="form-control" id="user_id" formControlName="user_id">
+                                                                        <option hidden>Choose</option>
+                                                                        <option *ngFor="let item of user" value={{item.id}} >{{item.person_name}}</option>
+
+                                                                    </select>
+                                                                    <div *ngIf="myForm.get('user_id')?.invalid && (myForm.get('user_id')?.dirty || myForm.get('user_id')?.touched)">
+                                                                        <div *ngIf="myForm.get('user_id')?.errors?.['required']"><p style=color:red;>required.</p> </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">Status</label>
+                                                                <div class="col-sm-10">
+                                                                    <select name="select" class="form-control" id="status" formControlName="status">
+                                                                        <option hidden>Choose</option>
+                                                                        <option value="Active" >active</option>
+                                                                        <option value="Inactive" >inactive</option>
+
+                                                                    </select>
+                                                                    <div *ngIf="myForm.get('status')?.invalid && (myForm.get('status')?.dirty || myForm.get('status')?.touched)">
+                                                                        <div *ngIf="myForm.get('status')?.errors?.['required']"><p style=color:red;>required.</p> </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">From Date</label>
+                                                                <div class="col-sm-10">
+                                                                    <input type="date" class="form-control" id="from_date" formControlName="from_date" required>
+                                                                    <div *ngIf="myForm.get('from_date')?.invalid && (myForm.get('from_date')?.dirty || myForm.get('from_date')?.touched)">
+                                                                        <div *ngIf="myForm.get('from_date')?.errors?.['required']"><p style=color:red;>required.</p> </div>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">To Date</label>
+                                                                <div class="col-sm-10">
+                                                                    <input type="date" class="form-control" id="to_date" formControlName="to_date" required>
+                                                                    <div *ngIf="myForm.get('to_date')?.invalid && (myForm.get('to_date')?.dirty || myForm.get('to_date')?.touched)">
+                                                                        <div *ngIf="myForm.get('to_date')?.errors?.['required']"><p style=color:red;>required.</p> </div>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">Remarks</label>
+                                                                <div class="col-sm-10">
+                                                                    <input type="text" class="form-control" id="remarks" formControlName="remarks" required>
+                                                                    <div *ngIf="myForm.get('remarks')?.invalid && (myForm.get('remarks')?.dirty || myForm.get('remarks')?.touched)">
+                                                                        <div *ngIf="myForm.get('remarks')?.errors?.['required']"><p style=color:red;>required.</p> </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">Is active</label>
+                                                                <div class="col-sm-10">
+                                                                    <input type="radio"  formControlName="options" value="option1">Yes &nbsp;&nbsp;&nbsp;
+                                                                   
+                                                                    
+                                                                </div>
+                                                            </div> -->
+
+                                                            
+
+                                                            
+
+                                                            <div class="form-group row">
+                                                                <div class="col-sm-10">
+                                                                    <input type="submit"  value="submit">
+                                                            </div>
+                                                            </div>
+                                                        
+
+                                                                    </form>
+                                                                   
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- Page body end -->
+                                                                </div>
+                                                            </div>
+                                                            <!-- Main-body end -->
+                                                            <div id="styleSelector">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+

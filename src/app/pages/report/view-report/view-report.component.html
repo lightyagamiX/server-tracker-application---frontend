@@ -1,0 +1,109 @@
+ 
+<div class="theme-loader">
+    <div class="loader-track">
+        <div class="loader-bar"></div>
+    </div>
+</div>
+<!-- Pre-loader end -->
+
+<div id="pcoded" class="pcoded">
+    <div class="pcoded-overlay-box"></div>
+    <div class="pcoded-container navbar-wrapper">
+        <app-header></app-header>
+        <div class="pcoded-main-container">
+            <div class="pcoded-wrapper">
+                
+                <app-sidebar></app-sidebar>
+                <div class="pcoded-content">
+                    <div class="pcoded-inner-content">
+                        <!-- Main-body start -->
+                        <div class="main-body">
+                            <div class="page-wrapper">
+                                <!-- Page-header start -->
+                                <div class="page-header card">
+                                    <div class="card-block">
+                                        <h5 class="m-b-10">Report</h5>
+                                        
+                                        <ul class="breadcrumb-title b-t-default p-t-10">
+                                            <li class="breadcrumb-item">
+                                                <a href="index.html"> <i class="fa fa-home"></i> </a>
+                                            </li>
+                                           <li class="breadcrumb-item"><a href="#!">Report</a>
+                                                    </li>
+                                                    <li class="breadcrumb-item"><a href="#!">Report - Details</a>
+                                                    </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Page-header end -->
+                                
+                            <!-- Page-body start -->
+                            <div class="page-body">
+                                <!-- Basic table card start -->
+                                <div class="card">
+                                    <div class="card-header">
+                                        
+                                        <div class="card-header-right">
+                                            <ul class="list-unstyled card-option">
+                                                <li><i class="fa fa-chevron-left"></i></li>
+                                                <li><i class="fa fa-window-maximize full-card"></i></li>
+                                                <li><i class="fa fa-minus minimize-card"></i></li>
+                                                <li><i class="fa fa-refresh reload-card"></i></li>
+                                                <li><i class="fa fa-times close-card"></i></li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                    <div class="card-block table-border-style">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr >
+                                                        
+                                                        <!-- <th>Role Id</th> -->
+                                                        <th>Department Id</th>
+                                                        <th>App Id</th>
+                                                        <th>vulnerability type</th>
+                                                        <th>Reported date</th>
+                                                        <th>edit</th>
+                                                        <th>delete</th>
+                                                        <!-- <th>Department Description</th> -->
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let item of posts">
+                                                        
+                                                        <!-- <td>{{item.id}}</td> -->
+                                                        <td>{{item.dept_name_under}}</td>
+                                                        <td>{{item.app_url_under}}</td>
+                                                        <td>{{item.vulnerability_type}}</td>
+                                                        <td>{{item.reported_date}}</td>
+                                                        <td><a href="#" [routerLink]="['/report/', item.id, 'edit']" class="btn btn-primary">Edit</a></td>
+                                                        
+                                                        <td><button class="btn btn-primary" (click)="deleteClick(item)" >Delete</button></td> 
+                                                    </tr>
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Basic table card end -->
+                                
+                            </div>
+                            <!-- Page-body end -->
+                        </div>
+                    </div>
+                    <!-- Main-body end -->
+
+                    <div id="styleSelector">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+

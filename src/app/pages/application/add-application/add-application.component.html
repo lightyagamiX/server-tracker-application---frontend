@@ -1,0 +1,201 @@
+<div class="theme-loader">
+    <div class="loader-track">
+        <div class="loader-bar"></div>
+    </div>
+</div>
+
+<div id="pcoded" class="pcoded">
+    <div class="pcoded-overlay-box"></div>
+    <div class="pcoded-container navbar-wrapper">
+        <app-header></app-header>
+        <div class="pcoded-main-container">
+            <div class="pcoded-wrapper">
+                
+                <app-sidebar></app-sidebar>
+                <div class="pcoded-content">
+                    <div class="pcoded-inner-content">
+
+                        <!-- Main-body start -->
+                        <div class="main-body">
+                            <div class="page-wrapper">
+                                <!-- Page-header start -->
+                                <div class="page-header card">
+                                    <div class="card-block">
+                                        <h5 class="m-b-10">Application</h5>
+                                        
+                                        <ul class="breadcrumb-title b-t-default p-t-10">
+                                            <li class="breadcrumb-item">
+                                                <a href="index.html"> <i class="fa fa-home"></i> </a>
+                                            </li>
+                                           <li class="breadcrumb-item">Application
+                                                    </li>
+                                                    <li class="breadcrumb-item">Add Application
+                                                    </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Page-header end -->
+                                
+                                <!-- Page body start -->
+                                <div class="page-body">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <!-- Basic Form Inputs card start -->
+                                            <div class="card">
+                                                
+                                                    <div class="card-block">
+                                                        <h4 class="sub-title">Basic Inputs</h4>
+                                                        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">App Name</label>
+                                                                <div class="col-sm-10">
+                                                                    <input type="text" class="form-control" id="appName" formControlName="appName" ngbAutofocus required>
+                                                                    <div *ngIf="myForm.get('appName')?.invalid && (myForm.get('appName')?.dirty || myForm.get('appName')?.touched)">
+                                                                        <div *ngIf="myForm.get('appName')?.errors?.['required']"><p style=color:red;>App name is required.</p> </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">App URL</label>
+                                                                <div class="col-sm-10">
+                                                                    <input type="" class="form-control" id="appUrl" formControlName="appUrl" ngbAutofocus required>
+                                                                    <div *ngIf="myForm.get('appUrl')?.invalid && (myForm.get('appUrl')?.dirty || myForm.get('appUrl')?.touched)">
+                                                                        <div *ngIf="myForm.get('appUrl')?.errors?.['required']"><p style=color:red;>App URL is required.</p> </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Department Name</label>
+                                                                    <div class="col-sm-10">
+                                                                        <select name="select" class="form-control" id="dep_name_under" formControlName="dep_name_under" required>
+                                                                            <option hidden>Choose</option>
+                                                                            <option *ngFor="let item of dep" value={{item.id}} >{{item.Dept_name}}</option> 
+                                                                        </select>
+                                                                        <div *ngIf="myForm.get('dep_name_under')?.invalid && (myForm.get('dep_name_under')?.dirty || myForm.get('dep_name_under')?.touched)">
+                                                                            <div *ngIf="myForm.get('dep_name_under')?.errors?.['required']"><p style=color:red;>Department name is required.</p> </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Hosted in SDC</label>
+                                                                    <div class="col-sm-10">
+                                                                        <input type="radio"  formControlName="SDC_hosted" value=true>Yes &nbsp;&nbsp;&nbsp;
+                                                                        <input type="radio"  formControlName="SDC_hosted" value=false>No &nbsp;&nbsp;&nbsp;
+                                                                    </div>
+                                                                </div>
+    
+                                                                <div *ngIf="myForm.get('SDC_hosted')?.value ==='true'">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-sm-2 col-form-label">SDC local IP</label>
+                                                                        <div class="col-sm-10">
+                                                                            <input type="text" class="form-control" id="SDC_ip" formControlName="SDC_ip" ngbAutofocus required>
+                                                                            <div *ngIf="myForm.get('SDC_ip')?.invalid && (myForm.get('SDC_ip')?.dirty || myForm.get('SDC_ip')?.touched)">
+                                                                                <div *ngIf="myForm.get('SDC_ip')?.errors?.['required']"><p style=color:red;>required.</p> </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+   
+
+                                                                
+
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-2 col-form-label">Public IP</label>
+                                                                    <div class="col-sm-10">
+                                                                        <input type="" class="form-control" id="app_ip" formControlName="app_ip" ngbAutofocus required>
+                                                                        <div *ngIf="myForm.get('app_ip')?.invalid && (myForm.get('app_ip')?.dirty || myForm.get('app_ip')?.touched)">
+                                                                            <div *ngIf="myForm.get('app_ip')?.errors?.['required']"><p style=color:red;>App URL is required.</p> </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">App incharge person</label>
+                                                                <div class="col-sm-10">
+                                                                    <select name="select" class="form-control" id="app_incharge" formControlName="app_incharge" required>
+                                                                        <option hidden>Choose</option>
+                                                                        <option *ngFor="let item of user" value={{item.id}} >{{item.person_name}}</option> 
+                                                                    </select>
+                                                                    <div *ngIf="myForm.get('app_incharge')?.invalid && (myForm.get('app_incharge')?.dirty || myForm.get('app_incharge')?.touched)">
+                                                                        <div *ngIf="myForm.get('app_incharge')?.errors?.['required']"><p style=color:red;>Required field.</p> </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">Monitored through NMS</label>
+                                                                <div class="col-sm-10">
+                                                                    <select name="select" class="form-control" id="monitored_through_nms" formControlName="monitored_through_nms" ngbAutofocus required>
+                                                                        <option hidden>Select</option>
+                                                                        <option value=true>yes</option>
+                                                                        <option value=false>no</option>
+                                                                    </select>
+                                                                    <div *ngIf="myForm.get('monitored_through_nms')?.invalid && (myForm.get('monitored_through_nms')?.dirty || myForm.get('monitored_through_nms')?.touched)">
+                                                                        <div *ngIf="myForm.get('monitored_through_nms')?.errors?.['required']"><p style=color:red;>Required field.</p> </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">Monitored through SIEM</label>
+                                                                <div class="col-sm-10">
+                                                                    <select name="select" class="form-control" required>
+                                                                        <option value="opt1">Select</option>
+                                                                        <option value="opt2">yes</option>
+                                                                        <option value="opt3">no</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div> -->
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">status</label>
+                                                                <div class="col-sm-10">
+                                                                    <select name="select" class="form-control" id="is_active" formControlName="is_active" ngbAutofocus required>
+                                                                        <option hidden>active/inactive</option>
+                                                                        <option value=true>yes</option>
+                                                                        <option value=false>no</option>
+                                                                    </select>
+                                                                    <div *ngIf="myForm.get('is_active')?.invalid && (myForm.get('is_active')?.dirty || myForm.get('is_active')?.touched)">
+                                                                        <div *ngIf="myForm.get('is_active')?.errors?.['required']"><p style=color:red;>Required field.</p> </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="form-group row">
+                                                                <div class="col-sm-10">
+                                                                    <input type="submit"  value="submit">
+                                                            </div>
+                                                            
+                                                            </div>
+                                                          
+                                                                
+                                                            
+                                                                        
+                                                                       
+                                                                    </form>
+                                                                   
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- Page body end -->
+                                                                </div>
+                                                            </div>
+                                                            <!-- Main-body end -->
+                                                            <!-- <div id="styleSelector"> -->
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+

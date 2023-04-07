@@ -1,0 +1,140 @@
+<app-preloader></app-preloader>
+
+<div id="pcoded" class="pcoded">
+    <div class="pcoded-overlay-box"></div>
+    <div class="pcoded-container navbar-wrapper">
+        <app-header></app-header>
+        <div class="pcoded-main-container">
+            <div class="pcoded-wrapper">
+                
+                <app-sidebar></app-sidebar>
+                <div class="pcoded-content">
+                    <div class="pcoded-inner-content">
+                        <div class="main-body">
+                            <div class="page-wrapper">
+                                <!-- Page-header start -->
+                                <div class="page-header card">
+                                    <div class="card-block">
+                                        <h5 class="m-b-10">Report</h5>
+                                        
+                                        <ul class="breadcrumb-title b-t-default p-t-10">
+                                            <li class="breadcrumb-item">
+                                                <a href="index.html"> <i class="fa fa-home"></i> </a>
+                                            </li>
+                                           <li class="breadcrumb-item"><a href="#!">Report</a>
+                                                    </li>
+                                                    <li class="breadcrumb-item"><a href="#!">Add Report</a>
+                                                    </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Page-header end -->
+                                
+                                <!-- Page body start -->
+                                <div class="page-body">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <!-- Basic Form Inputs card start -->
+                                            <div class="card">
+                                                
+                                                    <div class="card-block">
+                                                        <h4 class="sub-title">Basic Inputs</h4>
+                                                        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">Department Name</label>
+                                                                <div class="col-sm-10">
+                                                                    <select name="select" class="form-control" id="dept_name_under" formControlName="dept_name_under" required>
+                                                                        <option hidden>Choose</option>
+                                                                        <option *ngFor="let item of dep" value={{item.id}} >{{item.Dept_name}}</option>  
+                                                                
+                                                                    </select>
+                                                                    <div *ngIf="myForm.get('dept_name_under')?.invalid && (myForm.get('dept_name_under')?.dirty || myForm.get('dept_name_under')?.touched)">
+                                                                        <div *ngIf="myForm.get('dept_name_under')?.errors?.['required']">
+                                                                            <p style=color:red;>required field.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">App</label>
+                                                                <div class="col-sm-10">
+                                                                    <select name="select" class="form-control" id="app_url_under" formControlName="app_url_under" required>
+                                                                        <option hidden>Choose</option>
+                                                                        <option *ngFor="let item of app" value={{item.id}} >{{item.appName}}</option>  
+                                                                
+                                                                    </select>
+                                                                    <div *ngIf="myForm.get('app_url_under')?.invalid && (myForm.get('app_url_under')?.dirty || myForm.get('app_url_under')?.touched)">
+                                                                        <div *ngIf="myForm.get('app_url_under')?.errors?.['required']">
+                                                                            <p style=color:red;>required field.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">Report Type</label>
+                                                                <div class="col-sm-10">
+                                                                    <select name="select" class="form-control" id="report_type_under" formControlName="report_type_under" required>
+                                                                        <option hidden>Choose</option>
+                                                                        <option *ngFor="let item of reporttype" value={{item.id}} >{{item.report_name}}</option>  
+                                                                
+                                                                    </select>
+                                                                    <div *ngIf="myForm.get('report_type_under')?.invalid && (myForm.get('report_type_under')?.dirty || myForm.get('report_type_under')?.touched)">
+                                                                        <div *ngIf="myForm.get('report_type_under')?.errors?.['required']">
+                                                                            <p style=color:red;>required field.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">Reported Date</label>
+                                                                <div class="col-sm-10">
+                                                                    <input type="date" class="form-control" id="reported_date" formControlName="reported_date" required>
+                                                                    <div *ngIf="myForm.get('reported_date')?.invalid && (myForm.get('reported_date')?.dirty || myForm.get('reported_date')?.touched)">
+                                                                        <div *ngIf="myForm.get('reported_date')?.errors?.['required']"><p style=color:red;>required.</p> </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">vulnerability type</label>
+                                                                <div class="col-sm-10">
+                                                                    <input type="text" class="form-control" id="vulnerability_type" formControlName="vulnerability_type" required>
+                                                                    <div *ngIf="myForm.get('vulnerability_type')?.invalid && (myForm.get('vulnerability_type')?.dirty || myForm.get('vulnerability_type')?.touched)">
+                                                                        <div *ngIf="myForm.get('vulnerability_type')?.errors?.['required']"><p style=color:red;>required.</p> </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            
+
+                                                            <div class="form-group row">
+                                                                <div class="col-sm-10">
+                                                                    <input type="submit"  value="submit">
+                                                            </div>
+                                                            </div>
+                                                        
+
+                                                                    </form>
+                                                                   
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- Page body end -->
+                                                                </div>
+                                                            </div>
+                                                            <!-- Main-body end -->
+                                                            <div id="styleSelector">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+

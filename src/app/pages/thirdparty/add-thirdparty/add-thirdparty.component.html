@@ -1,0 +1,120 @@
+<app-preloader></app-preloader>
+
+<div id="pcoded" class="pcoded">
+    <div class="pcoded-overlay-box"></div>
+    <div class="pcoded-container navbar-wrapper">
+        <app-header></app-header>
+        <div class="pcoded-main-container">
+            <div class="pcoded-wrapper">
+                
+                <app-sidebar></app-sidebar>
+                <div class="pcoded-content">
+                    <div class="pcoded-inner-content">
+
+                        <!-- Main-body start -->
+                        <div class="main-body">
+                            <div class="page-wrapper">
+                                <!-- Page-header start -->
+                                <div class="page-header card">
+                                    <div class="card-block">
+                                        <h5 class="m-b-10">Third Party Organisation Registration</h5>
+                                        
+                                        <ul class="breadcrumb-title b-t-default p-t-10">
+                                            <li class="breadcrumb-item">
+                                                <a href="index.html"> <i class="fa fa-home"></i> </a>
+                                            </li>
+                                           <li class="breadcrumb-item"><a href="#!">Third Party Organisation</a>
+                                                    </li>
+                                                    <li class="breadcrumb-item"><a href="#!">Add Organisation</a>
+                                                    </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Page-header end -->
+                                
+                                <!-- Page body start -->
+                                <div class="page-body">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <!-- Basic Form Inputs card start -->
+                                            <div class="card">
+                                                
+                                                    <div class="card-block">
+                                                        <h4 class="sub-title">Basic Inputs</h4>
+                                                        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">Organisation Name</label>
+                                                                <div class="col-sm-10">
+                                                                    <input type="text" class="form-control" id="ThirdPartyName" formControlName="ThirdPartyName" required>
+                                                                    <div *ngIf="myForm.get('ThirdPartyName')?.invalid && (myForm.get('ThirdPartyName')?.dirty || myForm.get('ThirdPartyName')?.touched)">
+                                                                        <div *ngIf="myForm.get('ThirdPartyName')?.errors?.['required']">
+                                                                            <p style=color:red;>organisation name is required.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            
+                                                            
+                                                            <!-- <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">organisation short name</label>
+                                                                <div class="col-sm-10">
+                                                                    <input type="text" class="form-control" id="third_org_shortname" formControlName="third_org_shortname" required>
+                                                                    <div *ngIf="myForm.get('third_org_shortname')?.invalid && (myForm.get('third_org_shortname')?.dirty || myForm.get('third_org_shortname')?.touched)">
+                                                                        <div *ngIf="myForm.get('third_org_shortname')?.errors?.['required']">
+                                                                            <p style=color:red;>organisation shortname is required.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                
+                        
+                                                            </div> -->
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">Email</label>
+                                                                <div class="col-sm-10">
+                                                                    <input type="email" class="form-control" id="ThirdPartyEmail" required formControlName="ThirdPartyEmail" required>
+                                                                    <div *ngIf="myForm.get('ThirdPartyEmail')?.invalid && (myForm.get('ThirdPartyEmail')?.dirty || myForm.get('ThirdPartyEmail')?.touched)">
+                                                                        <div *ngIf="myForm.get('ThirdPartyEmail')?.errors?.['required']"><p style=color:red;>Email is required.</p></div>
+                                                                        <div *ngIf="myForm.get('ThirdPartyEmail')?.errors?.['email']"><p style=color:red;>invalid email format</p></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 col-form-label">Contact No</label>
+                                                                <div class="col-sm-10">
+                                                                    <input type="number" class="form-control" id="ThirdPartyContact" formControlName="ThirdPartyContact" required>
+                                                                    <div *ngIf="myForm.get('ThirdPartyContact')?.invalid && (myForm.get('ThirdPartyContact')?.dirty || myForm.get('ThirdPartyContact')?.touched)">
+                                                                        <div *ngIf="myForm.get('ThirdPartyContact')?.errors?.['required']"><p style=color:red;>valid contact number is required.</p></div>
+                                                                        <div *ngIf="myForm.get('ThirdPartyContact')?.errors?.['pattern']"><p style=color:red;>contact number should be atleast 10 characters</p></div>
+                                                                    
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                        
+
+                                                                        <div class="form-group row">
+                                                                            <div class="col-sm-10">
+                                                                                <input type="submit"  value="submit">
+                                                                        </div>
+                                                                        </div>
+
+                                                                    </form>
+                                                                   
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- Page body end -->
+                                                                </div>
+                                                            </div>
+                                                            <!-- Main-body end -->
+                                                            <div id="styleSelector">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
